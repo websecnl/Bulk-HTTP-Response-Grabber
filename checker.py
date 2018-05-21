@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import socket
 import urllib3
 import requests
 from urllib3.util import Retry
@@ -25,9 +26,11 @@ for line in f:
         else:
             print ("[-] FAILED TO DETECT SERVER HEADER, MAYBE ITS DISABLED BY SERVER.")
     except Exception as e:
-        print('An error occurred with: ' + line + ' Error Code: ' + str(e.args))
+        print('An error occurred with: ' + line + ' Error Code: ' + str(e.args) + '\n')
         with open('errors.txt', 'a') as servers:
             servers.write('[Host: ' + str(line[:-1]) + ']')
             servers.write('\n')
-        print("")
+        pass
+    except socket.timeout:
+        print ("Socket Timeout Detected")
         pass
