@@ -25,7 +25,7 @@ for line in f:
                 servers.write('[Host: ' + str(line[:-1]) + ', Header: ' + str(response.headers) + ']')
                 servers.write('\n')
     except Exception as e:
-        print('An error occurred with: ' + line + ' Error Code: ' + str(e.args) + '\n')
+        print('[!] An error occurred with: ' + line + ' Error Code: ' + str(e.args) + '\n')
         with open('errors.txt', 'a') as servers:
             servers.write('[Host: ' + str(line[:-1]) + ']')
             servers.write('\n')
