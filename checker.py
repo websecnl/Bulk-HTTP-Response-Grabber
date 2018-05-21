@@ -23,7 +23,7 @@ for line in f:
                 servers.write('[Host: ' + str(line[:-1]) + ', Header: ' + str(response.headers) + ']')
                 servers.write('\n')
         else:
-            print ("[-] FAILED TO DETECT SERVER HEADER, MAYBE ITS DISABLED BY SERVER.")
+            print ("[-] Something went horrbily wrong while grabbing the server data!")
     except Exception as e:
         print('An error occurred with: ' + line + ' Error Code: ' + str(e.args))
         print("")
